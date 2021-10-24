@@ -24,7 +24,7 @@ with mp_selfie_segmentation.SelfieSegmentation(
         _, th = cv2.threshold(results.segmentation_mask, 0.75, 255, cv2.THRESH_BINARY)
 
         th = th.astype(np.uint8)
-        th = cv2.medianBlur(th, 15)
+        th = cv2.medianBlur(th, 17)
         th_inv = cv2.bitwise_not(th)
 
         #cv2.imshow("results.segmentation_mask", results.segmentation_mask)
@@ -48,9 +48,9 @@ with mp_selfie_segmentation.SelfieSegmentation(
         
         #cv2.imshow("Th", th)
         #cv2.imshow("Th_inv", th_inv)
-        cv2.imshow("Fg", fg)
-        cv2.imshow("Bg", bg)
-        cv2.imshow("Frame", frame)
+        #cv2.imshow("Fg", fg)
+        #cv2.imshow("Bg", bg)
+        #cv2.imshow("Frame", frame)
         cv2.imshow("Output Image", output_image)
         if cv2.waitKey(1) & 0xFF == 27:
             break
